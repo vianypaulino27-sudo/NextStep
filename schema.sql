@@ -1,26 +1,33 @@
--- NextStep database schema (Postgres). Current full schema, including the
--- columns/tables added for the web app (marked "added"). seed.py applies the
--- additions idempotently to the existing database and loads the page data.
+-- NextStep database schema (Postgres) - the full CURRENT schema, for an EMPTY database.
+-- An existing database is upgraded with migrate.py instead (additive + idempotent):
+--   python3 migrate.py          (safe while old code is live)
+--   python3 migrate.py --post   (after the new server.py is deployed)
+-- Running migrate.py after this file is a no-op apart from loading data.
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE EXTENSION IF NOT EXISTS pg_trgm;          -- misspelling-tolerant college search (optional)
 
 CREATE TABLE users (
-  id               uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-  full_name        varchar NOT NULL,
-  email            varchar NOT NULL UNIQUE,
-  password_hash    varchar NOT NULL,               -- bcrypt
-  role             varchar NOT NULL CHECK (role IN ('student', 'mentor', 'tutor', 'admin')),
-  unweighted_gpa   numeric CHECK (unweighted_gpa >= 0.0 AND unweighted_gpa <= 4.0),
-  annual_budget    integer CHECK (annual_budget >= 0),
-  points_balance   integer DEFAULT 200 CHECK (points_balance >= 0),
-  created_at       timestamptz DEFAULT CURRENT_TIMESTAMP
+  id                     uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+  full_name              varchar NOT NULL,
+  email                  varchar NOT NULL UNIQUE,
+  password_hash          varchar NOT NULL,       -- bcrypt
+  role                   varchar NOT NULL CHECK (role IN ('student', 'mentor', 'tutor', 'admin')),
+  unweighted_gpa         numeric CHECK (unweighted_gpa >= 0.0 AND unweighted_gpa <= 4.0),
+  annual_budget          integer CHECK (annual_budget >= 0),
+  -- CACHE ONLY: the spendable balance is derived on every request
+  -- (100 x completed checklist steps - redeemed reward costs); see server.points_summary
+  points_balance         integer DEFAULT 200 CHECK (points_balance >= 0),
+  legacy_points_balance  integer,                -- snapshot of the old mutable counter (migration)
+  college_prefs          jsonb,                  -- last College Matcher inputs
+  created_at             timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE checklist_items (
   id            serial PRIMARY KEY,
   title         varchar NOT NULL,
   tag           varchar NOT NULL CHECK (tag IN ('FAFSA', 'TAP', 'SAT/ACT')),
-  point_reward  integer DEFAULT 100
+  point_reward  integer DEFAULT 100              -- informational; the server always uses 100
 );
 
 CREATE TABLE user_checklist_progress (
@@ -36,40 +43,64 @@ CREATE TABLE scholarships (
   id                  uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
   title               varchar NOT NULL,
   provider            varchar NOT NULL,
-  amount              integer NOT NULL CHECK (amount > 0),
-  deadline            date NOT NULL,
+  amount              integer CHECK (amount > 0),  -- custom entries only; verified ones use amount_text
+  deadline            date,                        -- NULL = not published on the official page
   min_gpa             numeric DEFAULT 0.0,
   description         text NOT NULL,
-  is_custom           boolean DEFAULT false,      -- true = added by a student, shown only to them
+  is_custom           boolean DEFAULT false,       -- added by a student, visible only to them
   created_by_user_id  uuid REFERENCES users(id) ON DELETE SET NULL,
   created_at          timestamptz DEFAULT CURRENT_TIMESTAMP,
-  slug                varchar UNIQUE,             -- added: page id, e.g. 'sch-1' (NULL for custom ones)
-  major               varchar                     -- added
+  slug                varchar UNIQUE,
+  major               varchar,
+  apply_url           text,                        -- official application / info page (https, allowlisted)
+  source_url          text,
+  last_verified       date,
+  status              varchar,                     -- open | upcoming | closed | unknown | custom
+  amount_text         varchar,
+  deadline_text       varchar,
+  eligibility         text,
+  scope               varchar,                     -- National | New York State | NYC
+  is_verified         boolean NOT NULL DEFAULT false,
+  is_active           boolean NOT NULL DEFAULT true
 );
 
 CREATE TABLE user_saved_scholarships (
   user_id         uuid NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   scholarship_id  uuid NOT NULL REFERENCES scholarships(id) ON DELETE CASCADE,
   saved_at        timestamptz DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (user_id, scholarship_id)
+  PRIMARY KEY (user_id, scholarship_id)          -- no duplicate saves
 );
 
 CREATE TABLE mentors_and_tutors (
-  id            uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-  user_id       uuid REFERENCES users(id) ON DELETE CASCADE,   -- NULL if the person has no login
-  university    varchar NOT NULL,
-  major         varchar NOT NULL,
-  test_scores   varchar,
-  bio           text NOT NULL,
-  avatar_url    text,
-  status        varchar DEFAULT 'available' CHECK (status IN ('available', 'busy', 'pending_verification')),
-  created_at    timestamptz DEFAULT CURRENT_TIMESTAMP,
-  slug          varchar UNIQUE,                                -- added: page id, e.g. 'tut-1', 'men-1'
-  kind          varchar NOT NULL DEFAULT 'mentor'
-                CONSTRAINT mentors_and_tutors_kind_check CHECK (kind IN ('mentor', 'tutor')),  -- added
-  display_name  varchar,                                       -- added
-  rate          varchar,                                       -- added
-  specialties   text[] NOT NULL DEFAULT '{}'                   -- added
+  id                  uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id             uuid REFERENCES users(id) ON DELETE CASCADE,
+  university          varchar NOT NULL,
+  major               varchar NOT NULL,
+  test_scores         varchar,
+  bio                 text NOT NULL,
+  avatar_url          text,
+  status              varchar DEFAULT 'available' CHECK (status IN ('available', 'busy', 'pending_verification')),
+  created_at          timestamptz DEFAULT CURRENT_TIMESTAMP,
+  slug                varchar UNIQUE,
+  kind                varchar NOT NULL DEFAULT 'mentor'
+                      CONSTRAINT mentors_and_tutors_kind_check CHECK (kind IN ('mentor', 'tutor')),
+  display_name        varchar,
+  rate                varchar,
+  specialties         text[] NOT NULL DEFAULT '{}',
+  is_demo             boolean NOT NULL DEFAULT false,   -- fictional demonstration profile
+  verified            boolean NOT NULL DEFAULT false,   -- staff verified the affiliation
+  verified_note       text,
+  pronouns            varchar,
+  class_year          varchar,
+  academic_interests  text[] NOT NULL DEFAULT '{}',
+  career_interests    text[] NOT NULL DEFAULT '{}',
+  journey             text,
+  help_areas          text[] NOT NULL DEFAULT '{}',
+  activities          text[] NOT NULL DEFAULT '{}',
+  experience_areas    text[] NOT NULL DEFAULT '{}',
+  languages           text[] NOT NULL DEFAULT '{}',
+  availability        text,                             -- NULL -> "Availability not provided"
+  response_time       text
 );
 
 CREATE TABLE mentor_requests (
@@ -78,19 +109,25 @@ CREATE TABLE mentor_requests (
   mentor_id     uuid REFERENCES mentors_and_tutors(id) ON DELETE CASCADE,
   request_type  varchar NOT NULL CHECK (request_type IN ('mentorship', 'act_sat_tutoring')),
   notes         text,
-  status        varchar DEFAULT 'pending' CHECK (status IN ('pending', 'accepted', 'completed', 'declined')),
-  requested_at  timestamptz DEFAULT CURRENT_TIMESTAMP
+  status        varchar DEFAULT 'pending'
+                CONSTRAINT mentor_requests_status_check
+                CHECK (status IN ('pending', 'accepted', 'completed', 'declined', 'cancelled')),
+  requested_at  timestamptz DEFAULT CURRENT_TIMESTAMP,
+  topics        text[] NOT NULL DEFAULT '{}',
+  updated_at    timestamptz
 );
+CREATE UNIQUE INDEX mentor_requests_one_pending
+  ON mentor_requests (student_id, mentor_id, request_type) WHERE status = 'pending';
 
 CREATE TABLE rewards_shop (
   id              uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
   title           varchar NOT NULL,
   cost_points     integer NOT NULL CHECK (cost_points > 0),
   category        varchar NOT NULL CHECK (category IN ('Gift Card', 'Merch')),
-  icon_name       varchar DEFAULT 'gift',         -- Lucide icon name
+  icon_name       varchar DEFAULT 'gift',
   description     text NOT NULL,
   stock_quantity  integer DEFAULT 100,
-  slug            varchar UNIQUE                  -- added: page id, e.g. 'rew-1'
+  slug            varchar UNIQUE
 );
 
 CREATE TABLE redemptions (
@@ -103,10 +140,11 @@ CREATE TABLE redemptions (
   redeemed_at                timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
--- added: College Matcher tab
+-- LEGACY: the page's 3 fictional example colleges. No longer read by server.py
+-- (kept so the previously deployed code keeps working; safe to drop later).
 CREATE TABLE colleges (
   id              uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-  slug            varchar UNIQUE NOT NULL,        -- e.g. 'col-1'
+  slug            varchar UNIQUE NOT NULL,
   name            varchar NOT NULL,
   type            varchar NOT NULL CHECK (type IN ('Public', 'Private')),
   location        varchar NOT NULL,
@@ -120,14 +158,91 @@ CREATE TABLE colleges (
   created_at      timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
--- added: Internships tab
 CREATE TABLE internships (
-  id           uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-  slug         varchar UNIQUE NOT NULL,           -- e.g. 'int-1'
-  title        varchar NOT NULL,
-  org          varchar NOT NULL,
-  target       varchar NOT NULL CHECK (target IN ('High School', 'College')),
-  pay          varchar,
-  description  text NOT NULL,
-  created_at   timestamptz DEFAULT CURRENT_TIMESTAMP
+  id                 uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+  slug               varchar UNIQUE NOT NULL,
+  title              varchar NOT NULL,
+  org                varchar NOT NULL,
+  target             varchar NOT NULL CHECK (target IN ('High School', 'College')),
+  pay                varchar,
+  description        text NOT NULL,
+  created_at         timestamptz DEFAULT CURRENT_TIMESTAMP,
+  location           varchar,
+  format             varchar,
+  responsibilities   text,
+  eligibility        text,
+  age_grade          varchar,
+  deadline           date,
+  deadline_text      varchar,
+  compensation       varchar,
+  compensation_text  varchar,
+  skills             text,
+  apply_url          text,
+  source_url         text,
+  last_verified      date,
+  status             varchar,
+  is_verified        boolean NOT NULL DEFAULT false,
+  is_active          boolean NOT NULL DEFAULT true
+);
+
+-- U.S. Department of Education College Scorecard (public domain), loaded by
+-- scripts/import_scorecard.py. Column meanings: see that script and DATABASE.md.
+CREATE TABLE college_scorecard (
+  unitid             integer PRIMARY KEY,
+  opeid              varchar,
+  name               varchar NOT NULL,
+  alias              varchar,
+  city               varchar,
+  state              varchar(2),
+  zip                varchar,
+  website            text,
+  net_price_calc_url text,
+  control            smallint,
+  pred_degree        smallint,
+  high_degree        smallint,
+  locale             smallint,
+  latitude           numeric,
+  longitude          numeric,
+  undergrad_enrollment integer,
+  admission_rate     numeric,
+  open_admission     boolean,
+  test_policy        smallint,
+  sat_avg            integer,
+  sat_rw_25 integer, sat_rw_75 integer, sat_math_25 integer, sat_math_75 integer,
+  act_25 integer, act_75 integer,
+  tuition_in_state   integer,
+  tuition_out_state  integer,
+  cost_of_attendance integer,
+  avg_net_price      integer,
+  net_price_by_income jsonb,
+  completion_rate    numeric,
+  retention_rate     numeric,
+  pell_share         numeric,
+  median_debt        integer,
+  median_earnings_10yr integer,
+  bachelor_programs  text[] NOT NULL DEFAULT '{}',
+  associate_programs text[] NOT NULL DEFAULT '{}',
+  hbcu boolean, hsi boolean, women_only boolean, men_only boolean, distance_only boolean,
+  search_text        text NOT NULL DEFAULT '',
+  imported_at        timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX college_scorecard_state ON college_scorecard (state);
+CREATE INDEX college_scorecard_search_trgm ON college_scorecard USING gin (search_text gin_trgm_ops);
+
+CREATE TABLE college_data_source (
+  id           text PRIMARY KEY,
+  title        text NOT NULL,
+  source_url   text NOT NULL,
+  file_name    text,
+  released     text,
+  data_years   jsonb,
+  row_count    integer,
+  imported_at  timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE user_saved_colleges (
+  user_id   uuid    NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  unitid    integer NOT NULL REFERENCES college_scorecard(unitid) ON DELETE CASCADE,
+  saved_at  timestamptz DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (user_id, unitid)
 );

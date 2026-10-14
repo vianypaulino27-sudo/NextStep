@@ -1,0 +1,136 @@
+{
+  "_about": "FICTIONAL demonstration mentor and tutor profiles. These are not real people and are not affiliated with the institutions named. Every profile is imported with is_demo=true and verified=false and is shown with the label 'Demo profile — fictional example, not a verified mentor.' Availability and response time are deliberately null (no real data). Import with: python3 scripts/import_listings.py --only mentors",
+  "people": [
+    {
+      "slug": "men-1", "kind": "mentor", "login_email": "sarah.chen@columbia.edu",
+      "display_name": "Sarah Chen", "pronouns": "she/her",
+      "university": "Columbia University", "major": "Computer Science", "class_year": "Junior",
+      "bio": "First-generation student who worked through the FAFSA and scholarship process on her own.",
+      "journey": "Grew up as the first in her family to apply to college and taught herself the FAFSA and CSS Profile with help from a school counselor. Applied to a mix of CUNY, SUNY and private colleges.",
+      "academic_interests": ["Computer science", "Data and society"],
+      "career_interests": ["Software engineering", "Education technology"],
+      "help_areas": ["FAFSA and CSS Profile", "Scholarship search", "Being first-gen"],
+      "activities": ["Women in computing club", "Peer tutoring"],
+      "experience_areas": ["Financial aid", "Scholarships", "College transition"],
+      "languages": ["English", "Mandarin"]
+    },
+    {
+      "slug": "men-2", "kind": "mentor", "login_email": null,
+      "display_name": "Marcus Vance", "pronouns": "he/him",
+      "university": "New York University", "major": "Economics", "class_year": "Senior",
+      "bio": "Focuses on budgeting for college and writing scholarship essays.",
+      "journey": "Commuted from the Bronx for his first year to save money, then moved into campus housing after reapplying for aid.",
+      "academic_interests": ["Economics", "Personal finance"],
+      "career_interests": ["Financial planning", "Nonprofit management"],
+      "help_areas": ["Scholarship essays", "Comparing financial aid offers", "Budgeting"],
+      "activities": ["Investment club", "Student government"],
+      "experience_areas": ["Essays", "Scholarships", "Financial aid"],
+      "languages": ["English"]
+    },
+    {
+      "slug": "men-3", "kind": "mentor", "login_email": null,
+      "display_name": "Daniela Ortiz", "pronouns": "she/her",
+      "university": "CUNY Hunter College", "major": "Nursing", "class_year": "Sophomore",
+      "bio": "Transferred from a CUNY community college into a bachelor's nursing program.",
+      "journey": "Started at a community college to keep costs down, used TAP and Pell, and transferred after two years.",
+      "academic_interests": ["Nursing", "Public health"],
+      "career_interests": ["Registered nurse", "Community health"],
+      "help_areas": ["Community college and transfer", "TAP", "Health careers"],
+      "activities": ["Pre-health society", "Hospital volunteer"],
+      "experience_areas": ["Financial aid", "College transition", "Applications"],
+      "languages": ["English", "Spanish"]
+    },
+    {
+      "slug": "men-4", "kind": "mentor", "login_email": null,
+      "display_name": "Jamal Robinson", "pronouns": "he/him",
+      "university": "SUNY University at Buffalo", "major": "Mechanical Engineering", "class_year": "Junior",
+      "bio": "Moved upstate for college and can talk about life away from NYC.",
+      "journey": "Chose a SUNY campus after comparing net prices and visiting on a free campus tour bus program through his high school.",
+      "academic_interests": ["Engineering", "Robotics"],
+      "career_interests": ["Mechanical engineer", "Manufacturing"],
+      "help_areas": ["Choosing a SUNY campus", "STEM majors", "Living away from home"],
+      "activities": ["Robotics team", "National Society of Black Engineers chapter"],
+      "experience_areas": ["Applications", "College transition"],
+      "languages": ["English"]
+    },
+    {
+      "slug": "men-5", "kind": "mentor", "login_email": null,
+      "display_name": "Priya Nair", "pronouns": "she/her",
+      "university": "Cornell University", "major": "Biology & Society", "class_year": "Senior",
+      "bio": "Can help you plan essays and recommendation letters for selective colleges.",
+      "journey": "Applied Early Decision and wrote her personal statement about caring for younger siblings.",
+      "academic_interests": ["Biology", "Health policy"],
+      "career_interests": ["Medicine", "Public health research"],
+      "help_areas": ["Personal statement", "Recommendation letters", "Early Decision vs Regular Decision"],
+      "activities": ["Research lab assistant", "South Asian student association"],
+      "experience_areas": ["Essays", "Applications"],
+      "languages": ["English", "Malayalam"]
+    },
+    {
+      "slug": "men-6", "kind": "mentor", "login_email": null,
+      "display_name": "Kevin Tran", "pronouns": null,
+      "university": "CUNY City College of New York", "major": "Computer Engineering", "class_year": "Graduated 2025",
+      "bio": "Recent graduate who balanced a part-time job with full-time classes.",
+      "journey": "Lived at home, worked part time and finished on time with TAP and Pell grants.",
+      "academic_interests": ["Computer engineering"],
+      "career_interests": ["Hardware engineering", "Internships"],
+      "help_areas": ["Internships and resumes", "Working while in college", "Time management"],
+      "activities": ["IEEE student branch", "Hackathons"],
+      "experience_areas": ["Internships", "College transition"],
+      "languages": ["English", "Vietnamese"]
+    },
+    {
+      "slug": "men-7", "kind": "mentor", "login_email": null,
+      "display_name": "Aaliyah Brooks", "pronouns": "she/her",
+      "university": "Howard University", "major": "Political Science", "class_year": "Junior",
+      "bio": "Can talk about HBCUs, out-of-state costs and applying for outside scholarships.",
+      "journey": "Compared in-state and out-of-state offers and combined several outside scholarships to make an out-of-state school work.",
+      "academic_interests": ["Political science", "African American studies"],
+      "career_interests": ["Law", "Public policy"],
+      "help_areas": ["HBCUs", "Outside scholarships", "Out-of-state costs"],
+      "activities": ["Debate", "Campus newspaper"],
+      "experience_areas": ["Scholarships", "Essays", "Financial aid"],
+      "languages": ["English"]
+    },
+    {
+      "slug": "men-8", "kind": "mentor", "login_email": null,
+      "display_name": "Luis Fernandez", "pronouns": "he/him",
+      "university": "Lehman College (CUNY)", "major": "Accounting", "class_year": "Senior",
+      "bio": "Bronx native who stayed close to home for college.",
+      "journey": "Applied through the CUNY application, used the NYS DREAM Act application for state aid questions with his family, and joined an opportunity program.",
+      "academic_interests": ["Accounting", "Business"],
+      "career_interests": ["Accountant", "Small-business finance"],
+      "help_areas": ["CUNY application", "Opportunity programs", "Talking with family about college"],
+      "activities": ["Accounting society", "Volunteer tax preparer"],
+      "experience_areas": ["Applications", "Financial aid"],
+      "languages": ["English", "Spanish"]
+    },
+    {
+      "slug": "tut-1", "kind": "tutor", "login_email": "david.kim@cornell.edu",
+      "display_name": "David Kim", "pronouns": null,
+      "university": "Cornell University", "major": "ACT/SAT Tutor", "class_year": null,
+      "test_scores": "ACT 36 (demo)", "rate": "Free / Volunteer",
+      "bio": "Focuses on timing strategy for ACT Science and Math.",
+      "specialties": ["ACT Math & Science", "SAT Math"],
+      "help_areas": ["Test pacing", "Math review"], "experience_areas": ["Test prep"], "languages": ["English", "Korean"]
+    },
+    {
+      "slug": "tut-2", "kind": "tutor", "login_email": "maya.p@columbia.edu",
+      "display_name": "Maya Patel", "pronouns": null,
+      "university": "Columbia University", "major": "ACT/SAT Tutor", "class_year": null,
+      "test_scores": "SAT 1570 (demo)", "rate": "Free / Volunteer",
+      "bio": "Focuses on grammar rules and reading strategies.",
+      "specialties": ["SAT Reading & Writing", "ACT English"],
+      "help_areas": ["Reading strategies", "Grammar"], "experience_areas": ["Test prep"], "languages": ["English", "Hindi"]
+    },
+    {
+      "slug": "tut-3", "kind": "tutor", "login_email": null,
+      "display_name": "Ethan Zhang", "pronouns": null,
+      "university": "New York University", "major": "ACT/SAT Tutor", "class_year": "Alumnus",
+      "test_scores": "ACT 35 / SAT 1540 (demo)", "rate": "Volunteer",
+      "bio": "Focuses on error analysis, pacing logs and test anxiety.",
+      "specialties": ["Overall Pacing", "Test Anxiety"],
+      "help_areas": ["Pacing", "Test anxiety"], "experience_areas": ["Test prep"], "languages": ["English", "Mandarin"]
+    }
+  ]
+}

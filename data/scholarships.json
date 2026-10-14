@@ -1,0 +1,380 @@
+{
+  "_about": "Verified scholarship listings for NextStep. Every amount/deadline/eligibility field was read on the official page at apply_url on last_verified; null means the page did not state it. Edit this file and run `python3 scripts/import_listings.py --only scholarships` to update. Re-check links with `python3 scripts/check_links.py`.",
+  "scholarships": [
+    {
+      "slug": "questbridge-national-college-match",
+      "title": "QuestBridge National College Match",
+      "provider": "QuestBridge",
+      "apply_url": "https://www.questbridge.org/apply-to-college/programs/national-college-match",
+      "source_url": "https://www.questbridge.org/apply-to-college/programs/national-college-match",
+      "last_verified": "2026-10-14",
+      "status": "closed",
+      "amount_text": "Full four-year scholarship worth over $360,000",
+      "deadline": null,
+      "deadline_text": "The deadline for the 2026 QuestBridge National College Match was Thursday, October 1, at 11:59 p.m. Pacific Time.",
+      "eligibility": "High school seniors who excel academically and come from low-income households (generally under $65,000/year for a family of four, minimal assets).",
+      "scope": "National",
+      "description": "Matches high-achieving, low-income seniors with full four-year scholarships at QuestBridge partner colleges. Useful mainly for juniors planning ahead, since this year's deadline has passed.",
+      "evidence": [
+        "QuestBridge National College Match Scholarships are worth over $360,000 and cover tuition, housing, food, and other expenses.",
+        "Come from a household earning less than $65,000 annually (for a household of four) with minimal assets.",
+        "The deadline for the 2026 QuestBridge National College Match was Thursday, October 1"
+      ],
+      "verification_notes": "Requested URL redirected to this final URL. The page uses past tense: the Oct 1, 2026 deadline has passed, so deadline is null. Seniors who missed Match can still apply to QuestBridge partner colleges through regular decision (not verified here)."
+    },
+    {
+      "slug": "coca-cola-scholars-program",
+      "title": "Coca-Cola Scholars Program",
+      "provider": "Coca-Cola Scholars Foundation",
+      "apply_url": "https://www.coca-colascholarsfoundation.org/apply/",
+      "source_url": "https://www.coca-colascholarsfoundation.org/apply/",
+      "last_verified": "2026-10-14",
+      "status": "closed",
+      "amount_text": "$20,000 (150 scholars per year)",
+      "deadline": null,
+      "deadline_text": "The deadline for the 2027 Coke Scholars application is 5pm Eastern on September 30, 2026.",
+      "eligibility": "Current high school or home-schooled seniors in the 50 U.S. states, with a minimum 3.0 GPA and U.S. citizenship or another eligible status, who plan to attend an accredited U.S. college.",
+      "scope": "National",
+      "description": "Achievement-based $20,000 scholarship for seniors who show leadership and service. The class of 2027 cycle is closed. Juniors can plan for next August.",
+      "evidence": [
+        "150 Coca-Cola Scholars are selected each year to receive this $20,000 scholarship.",
+        "The 2027 Coca-Cola Scholars application is now closed."
+      ],
+      "verification_notes": "The 2027 window was Aug 3 to Sep 30, 2026 and has passed, so deadline is null."
+    },
+    {
+      "slug": "gates-scholarship",
+      "title": "The Gates Scholarship",
+      "provider": "The Gates Scholarship",
+      "apply_url": "https://www.thegatesscholarship.org/scholarship/",
+      "source_url": "https://www.thegatesscholarship.org/scholarship/",
+      "last_verified": "2026-10-14",
+      "status": "closed",
+      "amount_text": "Full cost of attendance not covered by other aid and the Student Aid Index",
+      "deadline": null,
+      "deadline_text": "Sept 15 2026",
+      "eligibility": "Pell-eligible high school seniors with a weighted GPA of at least 3.3, who are U.S. citizens or permanent residents and plan to attend a four-year nonprofit U.S. college full-time.",
+      "scope": "National",
+      "description": "Last-dollar scholarship covering the full cost of attendance for high-achieving, Pell-eligible seniors. The application for this year's seniors has closed.",
+      "evidence": [
+        "Scholars will receive funding for the full cost of attendance",
+        "minimum cumulative weighted GPA of 3.3 on a 4.0 scale",
+        "Available July 15 2026",
+        "Sept 15 2026"
+      ],
+      "verification_notes": "The page still shows an 'Open' label, but its listed deadline (Sept 15, 2026) has passed as of 2026-10-14, so status is 'closed' and deadline is null. Re-check before publishing."
+    },
+    {
+      "slug": "jack-kent-cooke-college-scholarship",
+      "title": "Cooke College Scholarship Program",
+      "provider": "Jack Kent Cooke Foundation",
+      "apply_url": "https://www.jkcf.org/our-scholarships/college-scholarship-program/",
+      "source_url": "https://www.jkcf.org/our-scholarships/college-scholarship-program/",
+      "last_verified": "2026-10-14",
+      "status": "open",
+      "amount_text": "Up to $55,000 per year",
+      "deadline": "2026-11-11",
+      "deadline_text": "The Cooke College Scholarship Program application is currently open and will close on November 11, 2026.",
+      "eligibility": "High-achieving high school seniors with financial need who plan to attend a top four-year college.",
+      "scope": "National",
+      "description": "Last-dollar scholarship of up to $55,000 a year toward a bachelor's degree for high-achieving seniors with financial need.",
+      "evidence": [
+        "can provide as much as $55,000 per year to pursue a bachelor's degree",
+        "currently open and will close on November 11, 2026"
+      ],
+      "verification_notes": "curl returns 403 (bot blocking), but WebFetch loaded the page content normally. The page does not list a GPA or income cutoff."
+    },
+    {
+      "slug": "hispanic-scholarship-fund",
+      "title": "HSF Scholar Program",
+      "provider": "Hispanic Scholarship Fund",
+      "apply_url": "https://www.hsf.net/scholarship/",
+      "source_url": "https://www.hsf.net/scholarship/",
+      "last_verified": "2026-10-14",
+      "status": "closed",
+      "amount_text": "$500 - $5,000, based on relative need",
+      "deadline": null,
+      "deadline_text": null,
+      "eligibility": "Students of Hispanic heritage, with a minimum 3.0 GPA for high school students, who are U.S. citizens, permanent residents, or DACA recipients.",
+      "scope": "National",
+      "description": "Need-based scholarships plus support services for students of Hispanic heritage.",
+      "evidence": [
+        "Award amounts range from $500 - $5,000, based on relative need.",
+        "open to students of all races who identify as being of Hispanic heritage",
+        "US Citizen, Permanent Legal Resident, or DACA"
+      ],
+      "verification_notes": "The page shows only the past 2026 cycle (opened Jan 5, closed Feb 15, 2026) and is marked Closed, so deadline is null. Dates for the next cycle are not posted yet. Re-check in January 2027."
+    },
+    {
+      "slug": "ron-brown-scholar-program",
+      "title": "Ron Brown Scholar Program",
+      "provider": "Ron Brown Scholar Program (CAP Charitable Foundation)",
+      "apply_url": "https://ronbrown.org/ron-brown-scholarship/",
+      "source_url": "https://ronbrown.org/ron-brown-scholarship/",
+      "last_verified": "2026-10-14",
+      "status": "open",
+      "amount_text": "$40,000 over four years ($10,000 per year); 20 awards",
+      "deadline": null,
+      "deadline_text": "Final application submission deadline: December 1",
+      "eligibility": "Black/African American high school seniors who are U.S. citizens or permanent residents.",
+      "scope": "National",
+      "description": "Four-year scholarship and leadership community for academically talented Black high school seniors.",
+      "evidence": [
+        "RBSP competitively awards 20 four-year $40,000 scholarships ($10,000 each year)",
+        "APPLICATION FOR THE 2027 SCHOLARSHIP COMPETITION IS NOW OPEN",
+        "Must be Black/African American."
+      ],
+      "verification_notes": "The page gives the deadline as 'December 1' without a year, so the ISO deadline is left null. Because the 2027 competition is open, it is probably Dec 1, 2026, but the page does not say so. The requested URL ronbrown.org/apply redirected here."
+    },
+    {
+      "slug": "elks-most-valuable-student",
+      "title": "Elks Most Valuable Student Scholarship",
+      "provider": "Elks National Foundation",
+      "apply_url": "https://www.elks.org/scholars/scholarships/mvs.cfm",
+      "source_url": "https://www.elks.org/scholars/scholarships/mvs.cfm",
+      "last_verified": "2026-10-14",
+      "status": "open",
+      "amount_text": "$1,000 to $7,500 per year; top 20 awards of $30,000/year for four years",
+      "deadline": "2026-11-12",
+      "deadline_text": "The 2027 application deadline is November 12, 2026 at 11:59 p.m., Pacific Time.",
+      "eligibility": "Current high school seniors (or the equivalent) who are U.S. citizens.",
+      "scope": "National",
+      "description": "Competitive scholarship that judges seniors on scholarship, leadership, and financial need. Recipients do not need to be connected to the Elks.",
+      "evidence": [
+        "Current high school seniors, or the equivalent, who are citizens of the United States are eligible to apply.",
+        "The 2027 application deadline is November 12, 2026"
+      ],
+      "verification_notes": "The page does not give an open date. Status 'open' is inferred from an upcoming 2027 deadline. Applicants must be U.S. citizens."
+    },
+    {
+      "slug": "burger-king-scholars",
+      "title": "Burger King Scholars Program",
+      "provider": "Burger King Foundation",
+      "apply_url": "https://www.burgerkingfoundation.org/programs/burger-king-sm-scholars",
+      "source_url": "https://www.burgerkingfoundation.org/programs/burger-king-sm-scholars",
+      "last_verified": "2026-10-14",
+      "status": "upcoming",
+      "amount_text": "$1,000 to $60,000",
+      "deadline": "2026-12-15",
+      "deadline_text": "The application period for the 2027-2028 cycle opens on October 15th, 2026 and will be open until December 15th, 2026.",
+      "eligibility": "High school seniors (and Burger King employees and their families). Selection considers GPA, work experience, activities, financial need, and community service.",
+      "scope": "National",
+      "description": "Scholarships for high school seniors, with three top McLamore WHOPPER awards of $60,000.",
+      "evidence": [
+        "Scholarships range from $1,000 to $60,000",
+        "opens on October 15th, 2026 and will be open until December 15th, 2026"
+      ],
+      "verification_notes": "Opens 2026-10-15, the day after this check, so status is 'upcoming'. Applications go through burgerking.scholarsapply.org (HTTP 200), which did not list dates. The old /programs/burger-king-scholars URL returns 404."
+    },
+    {
+      "slug": "jackie-robinson-foundation-scholarship",
+      "title": "Jackie Robinson Foundation Scholarship",
+      "provider": "Jackie Robinson Foundation",
+      "apply_url": "https://jackierobinson.org/apply/",
+      "source_url": "https://jackierobinson.org/apply/",
+      "last_verified": "2026-10-14",
+      "status": "open",
+      "amount_text": null,
+      "deadline": "2027-01-14",
+      "deadline_text": "by 5:00 p.m. EST on Thursday, January 14, 2027",
+      "eligibility": "Graduating high school seniors who are U.S. citizens, have an ACT or SAT score, and show a record of academic excellence.",
+      "scope": "National",
+      "description": "Merit-based scholarship with mentoring and leadership programming for graduating seniors. The foundation is headquartered in NYC.",
+      "evidence": [
+        "a merit-based, academic scholarship",
+        "Be a graduating high school senior.",
+        "by 5:00 p.m. EST on Thursday, January 14, 2027"
+      ],
+      "verification_notes": "curl returns 403 (bot blocking), but WebFetch loaded the page content. The page opened Sept 1, 2026 and does not state an award amount, so amount_text is null. It does not state a minimum GPA or SAT score."
+    },
+    {
+      "slug": "posse-foundation-scholarship",
+      "title": "Posse Scholarship",
+      "provider": "The Posse Foundation",
+      "apply_url": "https://www.possefoundation.org/recruiting-students/the-nomination-process",
+      "source_url": "https://www.possefoundation.org/recruiting-students/the-nomination-process",
+      "last_verified": "2026-10-14",
+      "status": "unknown",
+      "amount_text": "Full tuition at a Posse partner college",
+      "deadline": null,
+      "deadline_text": null,
+      "eligibility": "High school students in the first term of senior year who are nominated by their high school or a community-based organization registered with Posse.",
+      "scope": "National",
+      "description": "Students are nominated in groups ('posses') for full-tuition leadership scholarships at partner colleges. Students cannot apply directly; a school or CBO must nominate them.",
+      "evidence": [
+        "Each Posse Scholar wins a full-tuition scholarship to attend one of Posse's partner colleges or universities.",
+        "Be in the first term of their senior year in high school.",
+        "accepted in the spring and summer before senior year begins"
+      ],
+      "verification_notes": "Nomination only. The page gives no dated deadline and does not name New York among its '20-plus recruitment cities'. Nominations happen in the spring and summer before senior year, so the class of 2027 window has probably passed. Counselors should contact the local Posse office."
+    },
+    {
+      "slug": "nys-excelsior-scholarship",
+      "title": "NYS Excelsior Scholarship",
+      "provider": "NYS Higher Education Services Corporation (HESC)",
+      "apply_url": "https://hesc.ny.gov/find-aid/nys-grants-scholarships/excelsior-scholarship-program",
+      "source_url": "https://hesc.ny.gov/find-aid/nys-grants-scholarships/excelsior-scholarship-program",
+      "last_verified": "2026-10-14",
+      "status": "closed",
+      "amount_text": "Tuition-free at SUNY/CUNY (last-dollar, after other grants)",
+      "deadline": null,
+      "deadline_text": null,
+      "eligibility": "NYS residents (12 continuous months) with household federal AGI of $125,000 or less, who complete 30 credits per year and then live in NYS for as many years as they received the award.",
+      "scope": "New York State",
+      "description": "State program that covers remaining SUNY or CUNY tuition for eligible New York families after other grants. Recipients must live in New York after graduation for as many years as they received the award.",
+      "evidence": [
+        "Allows students to attend a state-operated SUNY or CUNY college tuition-free.",
+        "Your household combined federal adjusted gross income must be $125,000 or less.",
+        "The NYS Excelsior Scholarship program is now closed."
+      ],
+      "verification_notes": "The page says the program is closed for the 2026-27 academic year and gives no date. Nothing is posted yet for 2027-28, the class of 2027's first college year. Students apply after enrolling (with FAFSA/TAP). Old URL path (/find-aid/nys-grants-scholarships-awards/...) returns 404."
+    },
+    {
+      "slug": "nys-stem-incentive-program",
+      "title": "NYS STEM Incentive Program",
+      "provider": "NYS Higher Education Services Corporation (HESC)",
+      "apply_url": "https://hesc.ny.gov/find-aid/nys-grants-scholarships/nys-science-technology-engineering-and-mathematics-stem-incentive",
+      "source_url": "https://hesc.ny.gov/find-aid/nys-grants-scholarships/nys-science-technology-engineering-and-mathematics-stem-incentive",
+      "last_verified": "2026-10-14",
+      "status": "unknown",
+      "amount_text": "Covers tuition up to average SUNY/CUNY resident undergraduate tuition",
+      "deadline": "2027-08-16",
+      "deadline_text": "Deadline: 08/16/2027 For the 2027-28 Academic Year",
+      "eligibility": "Top 10% of a NYS high school graduating class, majoring in an approved STEM program at a NYS public college, and agreeing to live and work in a STEM job in NYS for five years.",
+      "scope": "New York State",
+      "description": "Tuition award for top-10% New York graduates who study STEM at a SUNY or CUNY college and then work in STEM in New York for five years.",
+      "evidence": [
+        "Be in the top 10.0% of your NYS high school graduating class",
+        "reside in New York State for five years and be employed in an approved STEM occupation",
+        "Deadline: 08/16/2027 For the 2027-28 Academic Year"
+      ],
+      "verification_notes": "The page shows a 2027-28 deadline and an 'Apply Now' button but does not say whether applications are open now, so status is 'unknown'."
+    },
+    {
+      "slug": "nys-scholarships-for-academic-excellence",
+      "title": "NYS Scholarships for Academic Excellence",
+      "provider": "NYS Higher Education Services Corporation (HESC)",
+      "apply_url": "https://hesc.ny.gov/SAE",
+      "source_url": "https://hesc.ny.gov/SAE",
+      "last_verified": "2026-10-14",
+      "status": "unknown",
+      "amount_text": "$500 or $1,500 per year",
+      "deadline": null,
+      "deadline_text": "Check with your high school for deadline dates.",
+      "eligibility": "High-achieving graduates of NYS high schools, nominated by their school based on Regents exam grades, who attend a NYS college full-time starting the fall after graduation and have 12 months of NYS residency (or qualify under the NYS DREAM Act).",
+      "scope": "New York State",
+      "description": "State merit award that high schools give to top students based on Regents exam grades. It is used at New York colleges.",
+      "evidence": [
+        "Receive $500 or $1,500 per year",
+        "Students are nominated by high schools",
+        "Awards are based on student grades on certain Regent's exams."
+      ],
+      "verification_notes": "There is no student application: schools nominate students. Recipients must file the FAFSA/TAP or NYS DREAM Act application to be paid. This program is not listed on the HESC grants index page, but /SAE is live."
+    },
+    {
+      "slug": "cuny-macaulay-honors-college",
+      "title": "Macaulay Honors College at CUNY (Merit Scholarship)",
+      "provider": "Macaulay Honors College, CUNY",
+      "apply_url": "https://macaulay.cuny.edu/admissions/",
+      "source_url": "https://macaulay.cuny.edu/admissions/",
+      "last_verified": "2026-10-14",
+      "status": "open",
+      "amount_text": "Tuition scholarship (four years, excluding fees) for students meeting CUNY NYS residency rules, plus Cultural Passport and Opportunities Fund access",
+      "deadline": "2026-11-16",
+      "deadline_text": "DEADLINE: NOV. 16, 2026 6PM",
+      "eligibility": "Admission uses academic and personal factors. The tuition scholarship is for students who meet CUNY NYS residency requirements for in-state tuition.",
+      "scope": "NYC",
+      "description": "CUNY's honors college. Admitted students get a merit package that includes tuition for in-state students, which lets them graduate free of tuition debt.",
+      "evidence": [
+        "DEADLINE: NOV. 16, 2026 6PM",
+        "Macaulay offers all of its students a merit scholarship package that includes tuition",
+        "It covers four years of undergraduate study excluding fees and expenses."
+      ],
+      "verification_notes": "The benefit and residency quotes come from https://macaulay.cuny.edu/admissions/tuition-and-merit-scholarship/ (HTTP 200). Neither page mentions a laptop. Status 'open' is inferred from the upcoming deadline."
+    },
+    {
+      "slug": "hispanic-heritage-youth-awards",
+      "title": "Hispanic Heritage Youth Awards",
+      "provider": "Hispanic Heritage Foundation",
+      "apply_url": "https://hhfawards.hispanicheritage.org/2026/forms/faqs.php",
+      "source_url": "https://hhfawards.hispanicheritage.org/2026/forms/faqs.php",
+      "last_verified": "2026-10-14",
+      "status": "open",
+      "amount_text": "Up to a $4,000 educational grant depending on category",
+      "deadline": "2026-11-01",
+      "deadline_text": "The deadline to apply is November 1st, 2026 at 11:59:59 PM PST.",
+      "eligibility": "High school students graduating in spring 2027 with a minimum unweighted 3.0 GPA, living in the U.S. or its territories, who will enroll in college in 2027-28.",
+      "scope": "National",
+      "description": "Category-based awards (such as STEM, arts, and community service) with educational grants for graduating seniors.",
+      "evidence": [
+        "Youth Award recipients will receive up to a $4,000 educational grant depending on the selected category",
+        "graduating in the spring of 2027",
+        "The deadline to apply is November 1st, 2026 at 11:59:59 PM PST."
+      ],
+      "verification_notes": "This is the official application portal's FAQ (the portal root redirects to /2026/forms/welcome.php). The main HHF Youth Awards page (hispanicheritage.org/discover/youth-awards/) returned 200 but had no details. The FAQ does not state a Hispanic-heritage requirement."
+    },
+    {
+      "slug": "bigfuture-scholarships-class-of-2027",
+      "title": "BigFuture Scholarships (Class of 2027)",
+      "provider": "College Board",
+      "apply_url": "https://bigfuture.collegeboard.org/pay-for-college/bigfuture-scholarships-2027",
+      "source_url": "https://bigfuture.collegeboard.org/pay-for-college/bigfuture-scholarships-2027",
+      "last_verified": "2026-10-14",
+      "status": "open",
+      "amount_text": "$500 and $40,000 scholarships",
+      "deadline": null,
+      "deadline_text": "Step deadlines: Strengthen College List Oct 31, 2026; Start Career List and Start Scholarship List Nov 30, 2026",
+      "eligibility": "Class of 2027 students with a College Board account who complete planning steps on their BigFuture dashboard. No essay and no minimum GPA.",
+      "scope": "National",
+      "description": "Students earn drawing entries for $500 and $40,000 scholarships by completing college-planning steps (college list, FAFSA, applications) on BigFuture.",
+      "evidence": [
+        "There's no essay. No minimum GPA.",
+        "$500 and $40,000 scholarships",
+        "Strengthen College List ... October 31, 2026"
+      ],
+      "verification_notes": "This is the program formerly called College Board Opportunity Scholarships. It is not discontinued: the main page says 'Extended Through Class of 2030'. Each step has its own deadline and the page lists no single deadline, so deadline is null. Creating an account is required."
+    },
+    {
+      "slug": "apia-scholarship",
+      "title": "APIA Scholarship",
+      "provider": "APIA Scholars",
+      "apply_url": "https://apiascholars.org/scholarships/",
+      "source_url": "https://apiascholars.org/scholarships/",
+      "last_verified": "2026-10-14",
+      "status": "upcoming",
+      "amount_text": "$2,500 one-year awards to $20,000 multi-year awards",
+      "deadline": "2027-01-15",
+      "deadline_text": "January 15th, 2027 5pm EST",
+      "eligibility": "Students who can show high financial need and do not already hold a bachelor's degree.",
+      "scope": "National",
+      "description": "Need-based scholarships from APIA Scholars, a national scholarship organization for Asian American and Pacific Islander students.",
+      "evidence": [
+        "Scholarship amounts range from $2,500 one-year awards to $20,000 multi-year awards.",
+        "The 2027-2028 APIA Scholarship application cycle will open November 15, 2026.",
+        "January 15th, 2027 5pm EST"
+      ],
+      "verification_notes": "The 2026-27 cycle is closed. The 2027-28 cycle opens Nov 15, 2026 and closes Jan 15, 2027. The page we read did not state the AANHPI heritage, citizenship, or Pell rules, so check the full eligibility page before showing them. Requested URL /scholarship/apia-scholarship/ redirected to /scholarships/."
+    },
+    {
+      "slug": "equitable-excellence-scholarship",
+      "title": "Equitable Excellence Scholarship",
+      "provider": "Equitable Foundation (administered by Scholarship America)",
+      "apply_url": "https://equitable.com/foundation/equitable-excellence-scholarship",
+      "source_url": "https://equitable.com/foundation/equitable-excellence-scholarship",
+      "last_verified": "2026-10-14",
+      "status": "open",
+      "amount_text": "$5,000 renewable for up to four years ($20,000 total)",
+      "deadline": "2026-12-22",
+      "deadline_text": "application is now open and will be active through Tuesday, December 22nd, 2026",
+      "eligibility": "Current public high school seniors in the 50 states, DC, or Puerto Rico who plan to enroll full-time in an accredited two- or four-year college and show financial need.",
+      "scope": "National",
+      "description": "Renewable scholarship for public high school seniors who show potential and resilience. Recipients also get workshops and support.",
+      "evidence": [
+        "our 2027 Equitable Excellence Scholarship application is now open and will be active through Tuesday, December 22nd, 2026",
+        "$5,000 renewable scholarship for up to four years",
+        "Be a current public high school senior"
+      ],
+      "verification_notes": "curl returns 200 and the content was read from the curl HTML. WebFetch was blocked with 'Request Rejected'. Applications go through scholarshipamerica.org/scholarship/equitableexcellence/ (HTTP 200)."
+    }
+  ]
+}
