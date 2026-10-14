@@ -1,0 +1,57 @@
+{
+  "_about": "Official links and tutorial videos shown on the FAFSA & TAP tab and used by the NextStep Assistant. Every URL was checked on last_verified (HTTP 200 after redirects). Video titles come from YouTube's oEmbed/watch-page metadata. Re-check with: python3 scripts/check_links.py",
+  "last_verified": "2026-10-14",
+  "videos": {
+    "fafsa": {
+      "youtube_id": "XZDiNdIgPUE",
+      "watch_url": "https://www.youtube.com/watch?v=XZDiNdIgPUE",
+      "supplied_url": "https://youtu.be/XZDiNdIgPUE?si=AeK7MAt9ofVkTFKF",
+      "verified_title": "How to fill out the 2027-28 FAFSA Starting as a Student",
+      "channel": "Get2College",
+      "length": "about 35 minutes",
+      "publisher_note": "Published on YouTube by Get2College (a college-access nonprofit). Not produced by the U.S. Department of Education.",
+      "embeddable": false,
+      "embed_note": "The video's owner has turned off playback on other websites (YouTube reports playableInEmbed=false and oEmbed returns 401), so NextStep shows a thumbnail that opens the video on YouTube instead of an embedded player."
+    },
+    "tap": {
+      "youtube_id": "5UKVJ4y6G7Q",
+      "watch_url": "https://www.youtube.com/watch?v=5UKVJ4y6G7Q",
+      "supplied_url": "https://youtu.be/5UKVJ4y6G7Q?si=IsbPs_fg647Xi4BE",
+      "verified_title": "NYS TAP Application: How to Complete It and Resolve Common Errors | HESC (FAFSA Ready Training)",
+      "channel": "NYSStudentAid",
+      "length": "about 62 minutes",
+      "publisher_note": "Published by the NYSStudentAid YouTube channel, which HESC's official website (hesc.ny.gov) links to as its YouTube channel. Published September 2025.",
+      "embeddable": true
+    }
+  },
+  "links": {
+    "studentaid": {"title": "Federal Student Aid (StudentAid.gov)", "url": "https://studentaid.gov/"},
+    "fafsa_apply": {"title": "FAFSA application", "url": "https://studentaid.gov/h/apply-for-aid/fafsa"},
+    "understand_aid": {"title": "Understanding financial aid", "url": "https://studentaid.gov/understand-aid"},
+    "fafsa_deadlines": {"title": "FAFSA deadlines (federal, state and college)", "url": "https://studentaid.gov/apply-for-aid/fafsa/fafsa-deadlines"},
+    "fafsa_filling_out": {"title": "Filling out the FAFSA", "url": "https://studentaid.gov/apply-for-aid/fafsa/filling-out"},
+    "fsa_id": {"title": "Create your StudentAid.gov account (FSA ID)", "url": "https://studentaid.gov/fsa-id/create-account/launch"},
+    "aid_estimator": {"title": "Federal Student Aid Estimator", "url": "https://studentaid.gov/aid-estimator/"},
+    "pell": {"title": "Federal Pell Grants", "url": "https://studentaid.gov/understand-aid/types/grants/pell"},
+    "scams": {"title": "Avoiding financial aid scams", "url": "https://studentaid.gov/resources/scams"},
+    "hesc": {"title": "NYS Higher Education Services Corporation (HESC)", "url": "https://hesc.ny.gov/"},
+    "nys_grants": {"title": "New York State grants and scholarships", "url": "https://hesc.ny.gov/find-aid/nys-grants-scholarships"},
+    "tap": {"title": "Tuition Assistance Program (TAP) - HESC", "url": "https://hesc.ny.gov/find-aid/nys-grants-scholarships/tuition-assistance-program-tap"},
+    "hesc_applying": {"title": "Applying for aid - HESC", "url": "https://hesc.ny.gov/applying-aid"},
+    "scorecard": {"title": "College Scorecard (U.S. Department of Education)", "url": "https://collegescorecard.ed.gov/"},
+    "scorecard_data": {"title": "College Scorecard data downloads", "url": "https://collegescorecard.ed.gov/data/"},
+    "college_navigator": {"title": "College Navigator (NCES)", "url": "https://nces.ed.gov/collegenavigator/"},
+    "ipeds": {"title": "IPEDS (NCES)", "url": "https://nces.ed.gov/ipeds/"},
+    "common_app": {"title": "Common App", "url": "https://www.commonapp.org/"},
+    "cuny_apply": {"title": "Apply to CUNY", "url": "https://www.cuny.edu/admissions/undergraduate/apply/"},
+    "bigfuture": {"title": "BigFuture (College Board)", "url": "https://bigfuture.collegeboard.org/"}
+  },
+  "verified_facts": {
+    "tap_max_award": {"text": "TAP awards range from $1,000 to $5,665 per year (HESC TAP page).", "source": "tap"},
+    "tap_deadline_2027_28": {"text": "HESC lists the TAP application deadline for the 2027-28 academic year as 06/30/2028 (and 06/30/2027 for 2026-27). Apply as early as possible: colleges and other programs have earlier dates.", "source": "tap"},
+    "tap_income": {"text": "HESC lists a net taxable income limit of $125,000 or less for dependent undergraduate students (lower limits apply to some independent students).", "source": "tap"},
+    "tap_residency": {"text": "HESC says TAP students must be U.S. citizens or eligible noncitizens and legal New York State residents for 12 continuous months; non-residents, including undocumented students, should check the NYS DREAM Act.", "source": "tap"},
+    "tap_full_time": {"text": "HESC says TAP students must attend an approved New York State college full time (12+ credits per semester) in a degree program and stay in good academic standing.", "source": "tap"},
+    "tap_through_fafsa": {"text": "HESC's TAP page says to apply through the FAFSA, with a separate 'Apply for TAP' option if you did not apply through the FAFSA.", "source": "tap"}
+  }
+}

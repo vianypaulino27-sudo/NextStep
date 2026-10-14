@@ -1,0 +1,338 @@
+{
+  "_about": "Curated knowledge for the NextStep Assistant (assistant.py). 'basis' tells students where an answer comes from: 'nextstep' = how this website works; 'official' = facts read on the linked official page on knowledge/resources.json last_verified date; 'general' = general guidance, not a verified rule. 'links' are keys of knowledge/resources.json links (or 'tab:<name>' for a NextStep tab). Keep answers free of invented deadlines, amounts and URLs.",
+  "entries": [
+    {
+      "id": "fafsa_how",
+      "title": "How to apply for the FAFSA",
+      "basis": "official",
+      "keywords": {"fafsa": 3, "apply": 1, "fill out": 2, "complete": 1, "submit": 1, "steps": 1, "how do i": 0.5, "start": 0.5, "application": 0.5},
+      "patterns": ["(apply|fill|complete|start|submit|do).{0,20}fafsa", "fafsa.{0,20}(apply|step|how|start)"],
+      "answer": "The FAFSA (Free Application for Federal Student Aid) is filed online at StudentAid.gov. It's free - never pay a website to file it.\n1. Create your StudentAid.gov account (FSA ID). A parent who needs to provide information creates their own account too.\n2. Gather what the form asks for, such as tax information from two years before the school year and records of savings and assets.\n3. Start the FAFSA form on StudentAid.gov, invite any contributors (for example a parent), and list the colleges that should get your results. New York students can then continue to the state TAP application.\n4. Sign and submit, then watch for your FAFSA Submission Summary and any follow-up requests from colleges.\nNextStep's FAFSA & TAP tab has a step-by-step checklist (100 points per step) and a FAFSA walkthrough video. NextStep never files the FAFSA for you and will never ask for your FSA ID password or Social Security number.",
+      "links": ["fafsa_apply", "fsa_id", "fafsa_filling_out", "tab:fafsa"]
+    },
+    {
+      "id": "fafsa_vs_tap",
+      "title": "FAFSA vs. TAP",
+      "basis": "official",
+      "keywords": {"difference": 3, "different": 2, "vs": 2, "versus": 2, "compare": 1, "fafsa": 1.5, "tap": 1.5, "federal": 1, "state": 1, "both": 1},
+      "patterns": ["differen.{0,30}(fafsa|tap)", "fafsa.{0,15}(and|vs\\.?|versus|or).{0,15}tap", "tap.{0,15}(and|vs\\.?|versus|or).{0,15}fafsa"],
+      "answer": "- FAFSA is the federal application. It's used for federal aid like Pell Grants, work-study and federal student loans, and many colleges and states use it too.\n- TAP (Tuition Assistance Program) is a New York State grant run by HESC. It helps eligible New York residents pay tuition at approved New York colleges.\nHow they connect: HESC's TAP page says to apply through the FAFSA. When you finish the FAFSA and list a New York college, you can go on to the TAP application. If you didn't, HESC has a separate 'Apply for TAP' option.\nVerified from HESC's TAP page: awards are $1,000 to $5,665 a year, there's an income limit ($125,000 net taxable income for dependent undergraduates), and you must be a New York resident attending an approved NY college full time. Check the official pages for your own situation.",
+      "links": ["fafsa_apply", "tap", "hesc", "tab:fafsa"]
+    },
+    {
+      "id": "tap_what",
+      "title": "What is TAP?",
+      "basis": "official",
+      "keywords": {"tap": 3, "tuition assistance": 3, "hesc": 2, "new york": 1, "state aid": 1.5, "eligible": 1, "eligibility": 1, "qualify": 1, "nys": 1},
+      "patterns": ["what('s| is) tap", "tap.{0,20}(eligib|qualif|how much|award)", "(eligib|qualif).{0,20}tap"],
+      "answer": "TAP is New York State's Tuition Assistance Program, run by the Higher Education Services Corporation (HESC). It's a grant, so you don't pay it back. Here's what HESC's TAP page says:\n- Awards range from $1,000 to $5,665 a year, depending on income and other factors.\n- Dependent undergraduates need a family net taxable income of $125,000 or less. Some independent students have lower limits.\n- You must be a U.S. citizen or eligible noncitizen and a legal New York resident for 12 continuous months. Non-residents, including undocumented students, should check the NYS DREAM Act.\n- You must attend an approved New York college full time (12+ credits a semester) and stay in good academic standing.\nYou apply through the FAFSA, then complete the TAP application.",
+      "links": ["tap", "nys_grants", "hesc", "tab:fafsa"]
+    },
+    {
+      "id": "tap_video",
+      "title": "TAP tutorial video",
+      "basis": "nextstep",
+      "keywords": {"tap": 2, "video": 3, "tutorial": 3, "watch": 3, "youtube": 2},
+      "patterns": ["(video|tutorial|watch).{0,30}tap", "tap.{0,30}(video|tutorial)"],
+      "answer": "Open the FAFSA & TAP Aid tab. The 'New York TAP Tutorial' card plays the video 'NYS TAP Application: How to Complete It and Resolve Common Errors' from HESC's NYSStudentAid YouTube channel. It's about an hour long. If the player doesn't load, use the 'Watch on YouTube' link on that card. The FAFSA tutorial is a separate card, so don't mix them up.",
+      "links": ["tab:fafsa", "video:tap"]
+    },
+    {
+      "id": "fafsa_video",
+      "title": "FAFSA tutorial video",
+      "basis": "nextstep",
+      "keywords": {"fafsa": 2, "video": 3, "tutorial": 3, "watch": 3, "youtube": 2},
+      "patterns": ["(video|tutorial|watch).{0,30}fafsa", "fafsa.{0,30}(video|tutorial)"],
+      "answer": "Open the FAFSA & TAP Aid tab. The 'FAFSA Tutorial' card links to 'How to fill out the 2027-28 FAFSA Starting as a Student', published on YouTube by Get2College, a college-access nonprofit, not the Department of Education. It's about 35 minutes long. The video's owner doesn't allow playback on other websites, so the card opens it on YouTube. For official instructions, use StudentAid.gov.",
+      "links": ["tab:fafsa", "video:fafsa", "fafsa_filling_out"]
+    },
+    {
+      "id": "aid_deadlines",
+      "title": "Financial aid deadlines",
+      "basis": "official",
+      "keywords": {"deadline": 3, "due": 2, "when": 1, "last day": 2, "date": 1, "fafsa": 1, "tap": 1, "financial aid": 1},
+      "patterns": ["(deadline|due|last day).{0,30}(fafsa|tap|aid)", "(fafsa|tap|aid).{0,30}(deadline|due)", "when.{0,20}(fafsa|tap).{0,20}(due|close)"],
+      "answer": "Here's what I can confirm:\n- TAP: HESC's TAP page lists 06/30/2028 as the application deadline for the 2027-28 academic year (06/30/2027 for 2026-27).\n- FAFSA: there's a federal deadline, but states and colleges often have much earlier ones, and some aid runs out. I haven't checked a specific date, so use StudentAid.gov's official deadlines page and each college's financial aid website.\nGeneral advice: file as early as you can after the form opens, and write down every college's priority deadline.",
+      "links": ["fafsa_deadlines", "tap"]
+    },
+    {
+      "id": "fsa_id",
+      "title": "FSA ID / StudentAid.gov account",
+      "basis": "official",
+      "keywords": {"fsa id": 4, "fsaid": 4, "account": 1, "username": 1, "password": 1, "studentaid.gov account": 3, "login": 1},
+      "patterns": ["fsa ?id", "studentaid.{0,10}account"],
+      "answer": "Your FSA ID is the username and password for your StudentAid.gov account. You use it to sign the FAFSA. A parent who contributes information creates their own account. Create it only on StudentAid.gov. Never share your FSA ID password with anyone, NextStep included. NextStep will never ask for it.",
+      "links": ["fsa_id", "studentaid"]
+    },
+    {
+      "id": "net_price",
+      "title": "Cost of attendance vs. net price",
+      "basis": "general",
+      "keywords": {"net price": 4, "cost of attendance": 4, "sticker": 3, "afford": 2, "affordable": 2, "cost": 1, "tuition": 1, "price": 1, "expensive": 1.5, "budget": 1},
+      "patterns": ["net price", "cost of attendance", "sticker price", "(afford|expensive|cheap)"],
+      "answer": "- Tuition is only the price of classes.\n- Cost of attendance (COA) is the full yearly estimate: tuition, fees, housing, food, books, transportation and personal costs.\n- Net price is what families actually pay after grants and scholarships. College Scorecard reports an average net price, plus averages by family income band.\nA college with a high published price can cost less than a cheaper-looking school once aid is counted. Use each college's Net Price Calculator for an estimate that fits your family. NextStep's College Matcher shows both numbers and never removes a college just because its sticker price is over your budget.",
+      "links": ["scorecard", "aid_estimator", "tab:matcher"]
+    },
+    {
+      "id": "college_match",
+      "title": "Finding colleges that fit your GPA and budget",
+      "basis": "nextstep",
+      "keywords": {"match": 3, "matcher": 4, "fit": 2, "gpa": 2, "budget": 2, "recommend": 2, "find colleges": 3, "which colleges": 2, "college list": 2, "safety": 1, "reach": 1, "target": 1},
+      "patterns": ["(find|which|recommend|suggest).{0,30}(college|school).{0,40}(gpa|budget|fit)", "college matcher", "(gpa|budget).{0,30}(college|school)"],
+      "answer": "Use the College Matcher tab:\n1. Enter your unweighted GPA and the yearly amount your family can pay (both required). If you want, add an SAT or ACT score, family income range, institution type, states and intended major.\n2. Press 'Find matches'. Results come from U.S. Department of Education College Scorecard data and are labeled Strong academic fit, Possible academic fit or More competitive. The labels use published admission rates and test-score ranges. Scorecard doesn't publish GPA, so GPA is only a rough signal.\n3. Each result explains why it was suggested and compares the sticker cost of attendance with the average net price.\nThese labels aren't predictions or guarantees. Check each college's own admissions page and Net Price Calculator.",
+      "links": ["tab:matcher", "scorecard"]
+    },
+    {
+      "id": "college_search",
+      "title": "Searching for a college by name",
+      "basis": "nextstep",
+      "keywords": {"search": 3, "by name": 4, "look up": 3, "lookup": 3, "find a college": 2, "specific college": 3, "name": 1},
+      "patterns": ["search.{0,30}(college|school|university)", "(college|school|university).{0,20}by name", "look ?up.{0,20}(college|school)"],
+      "answer": "Yes. In the College Matcher tab, type all or part of a college's name in 'Search colleges by name', for example 'Baruch', 'Cornell' or 'SUNY'. Suggestions appear as you type, small misspellings are tolerated, and 'Load more' shows more results. Pick a college to open its detail page. It shows location, type, official website, admissions, cost, graduation and retention rates, and the data year and source.\nCoverage: only U.S. colleges that take part in federal student aid and report to the Department of Education (College Scorecard). Colleges outside the U.S. aren't included.",
+      "links": ["tab:matcher", "scorecard"]
+    },
+    {
+      "id": "college_selection",
+      "title": "Choosing colleges",
+      "basis": "general",
+      "keywords": {"choose": 2, "pick": 1.5, "decide": 1.5, "which college": 2, "good college": 2, "college selection": 3, "right college": 2},
+      "patterns": ["(choose|pick|decide).{0,30}(college|school)", "right (college|school)"],
+      "answer": "General guidance. Build a balanced list:\n- Look at academic fit (admission rate and test ranges), cost (use each college's net price, not just the sticker price), programs in your intended major, graduation and retention rates, location and size, and the support programs offered.\n- Apply to a mix: some colleges where your profile is well above typical admitted students, some where it's typical, and a few more competitive ones.\n- Compare actual financial aid offers before you decide.\nThe College Matcher can help you start a list. A school counselor or mentor can help you narrow it down.",
+      "links": ["tab:matcher", "scorecard"]
+    },
+    {
+      "id": "admission_requirements",
+      "title": "Admission requirements",
+      "basis": "general",
+      "keywords": {"requirement": 3, "requirements": 3, "need to get in": 3, "get into": 2, "admission": 1.5, "admissions": 1.5, "accepted": 1},
+      "patterns": ["(requirement|need).{0,30}(admission|get in|apply)", "get into"],
+      "answer": "General guidance. Most colleges look at your high school transcript (courses and grades), an application form, often an essay and recommendation letters, and sometimes SAT/ACT scores. Many colleges are test-optional. Requirements differ by college and by program, so check each college's admissions website. For a specific college's published admission rate and test ranges, search it by name in the College Matcher.",
+      "links": ["tab:matcher", "common_app"]
+    },
+    {
+      "id": "app_timeline",
+      "title": "College application timeline",
+      "basis": "general",
+      "keywords": {"timeline": 4, "schedule": 2, "when should": 2, "senior year": 2, "junior year": 2, "early decision": 2, "early action": 2, "regular decision": 2, "plan": 1},
+      "patterns": ["timeline", "when should i (apply|start)", "(senior|junior) year"],
+      "answer": "General guidance for seniors (confirm every date on each college's website):\n- Late summer and early fall: finish your college list, ask for recommendation letters, draft your personal statement, and create your FAFSA account.\n- Fall: Early Decision and Early Action deadlines often fall in November. File the FAFSA, then New York students complete TAP.\n- Winter: many Regular Decision deadlines fall in January or February. Send transcripts and test scores if required.\n- Spring: compare financial aid offers. Many colleges ask for a decision by May 1.\nI can't give exact deadlines for a specific college unless they're verified. Always check the college's admissions page.",
+      "links": ["common_app", "cuny_apply", "fafsa_deadlines"]
+    },
+    {
+      "id": "admissions_terms",
+      "title": "Admissions terms",
+      "basis": "general",
+      "keywords": {"early decision": 3, "early action": 3, "regular decision": 3, "rolling": 3, "test optional": 3, "test-optional": 3, "binding": 3, "waitlist": 3, "deferred": 3, "what does": 1, "mean": 1},
+      "patterns": ["(early decision|early action|rolling admission|test.optional|waitlist|deferr)", "what does .{0,30} mean"],
+      "answer": "Common admissions terms (general definitions; each college sets its own rules):\n- Early Decision (ED): an early application that's binding. If admitted, you commit to attend. Think hard about cost before you apply ED.\n- Early Action (EA): an early application that's not binding.\n- Regular Decision (RD): the standard deadline, usually winter.\n- Rolling admission: applications are reviewed as they arrive, until spots fill.\n- Test-optional: you choose whether to send SAT/ACT scores.\n- Waitlisted / deferred: no final decision yet. Follow the college's instructions.",
+      "links": ["common_app"]
+    },
+    {
+      "id": "essays",
+      "title": "Essays and personal statements",
+      "basis": "general",
+      "keywords": {"essay": 4, "personal statement": 4, "write": 1, "writing": 1, "prompt": 2, "supplement": 2},
+      "patterns": ["essay", "personal statement"],
+      "answer": "General guidance for personal statements and scholarship essays:\n1. Pick one specific story or moment that shows who you are, rather than listing achievements.\n2. Show what you did, thought and learned. Use concrete details.\n3. Answer the actual prompt and stay within the word limit.\n4. Revise several times, read it out loud, and ask a teacher, counselor or mentor for feedback. The essay must stay in your own words.\n5. Reuse a strong essay for several scholarships, but tailor it to each prompt.\nMentors on NextStep can help you with essays. The current mentor profiles are fictional demos, so check each profile's label.",
+      "links": ["tab:mentors", "common_app"]
+    },
+    {
+      "id": "rec_letters",
+      "title": "Recommendation letters",
+      "basis": "general",
+      "keywords": {"recommendation": 4, "letter": 2, "rec letter": 4, "recommender": 4, "teacher": 1, "counselor": 1},
+      "patterns": ["recommendation", "rec(ommendation)? letter"],
+      "answer": "General guidance:\n- Ask teachers (often from junior-year core classes) and your counselor who know your work well.\n- Ask in person at least 3-4 weeks before the deadline, and follow up with a short written request.\n- Give them a 'brag sheet': your activities, goals, a class project you're proud of, and the deadlines with how to submit.\n- Send a thank-you note, and tell them where you got in.\nCheck each college's or scholarship's rules for how many letters it wants and from whom.",
+      "links": []
+    },
+    {
+      "id": "transcripts",
+      "title": "Transcripts",
+      "basis": "general",
+      "keywords": {"transcript": 4, "transcripts": 4, "grades": 1, "send": 1},
+      "patterns": ["transcript"],
+      "answer": "General guidance: your high school transcript lists your courses and grades. Colleges usually get it from your school counselor's office, often through the application platform (for example Common App or the CUNY application), not from you directly. Ask your counselor how your school sends transcripts and how early to request them. Some colleges let you self-report grades first. Follow each college's instructions.",
+      "links": ["common_app", "cuny_apply"]
+    },
+    {
+      "id": "application_platforms",
+      "title": "Application platforms",
+      "basis": "general",
+      "keywords": {"common app": 4, "commonapp": 4, "cuny application": 4, "suny application": 4, "apply to college": 2, "application platform": 3, "how to apply": 1},
+      "patterns": ["common ?app", "(cuny|suny).{0,20}(apply|application)", "apply to (college|cuny|suny)"],
+      "answer": "Most colleges take applications through an online platform:\n- Common App is used by many private and public colleges.\n- CUNY has its own online application on cuny.edu.\n- SUNY campuses accept applications through SUNY's own system and some through Common App. Check each campus.\nUse the college's own admissions page to see which applications it accepts. Applying is always done on those official sites. NextStep never submits applications for you.",
+      "links": ["common_app", "cuny_apply"]
+    },
+    {
+      "id": "scholarships_find",
+      "title": "Finding scholarships",
+      "basis": "nextstep",
+      "keywords": {"scholarship": 3, "scholarships": 3, "find": 1, "free money": 2, "grant": 1, "eligible": 1, "eligibility": 1, "materials": 1, "qualify": 1},
+      "patterns": ["(find|search|look for|get).{0,30}scholarship", "scholarship.{0,30}(eligib|qualif|need|material)"],
+      "answer": "Open the Scholarships tab. It lists real national, New York State and NYC scholarships. Each card shows:\n- the amount, deadline and eligibility exactly as published, or 'See official site' if the provider didn't publish them\n- the status (open, upcoming, closed or unknown)\n- the date NextStep last checked the official page\nAlways confirm details on the provider's website, because they change. Common materials include a transcript, an essay, recommendation letters, an activities list and sometimes the FAFSA. Real scholarships never charge an application fee.",
+      "links": ["tab:scholarships", "nys_grants", "scams"]
+    },
+    {
+      "id": "scholarship_save",
+      "title": "Saving a scholarship",
+      "basis": "nextstep",
+      "keywords": {"save": 4, "saved": 3, "bookmark": 3, "unsave": 3, "remove": 1, "list": 1, "scholarship": 1},
+      "patterns": ["(save|bookmark|unsave).{0,30}scholarship", "scholarship.{0,30}(save|saved|bookmark)", "saved list"],
+      "answer": "On the Scholarships tab, press 'Save' (the bookmark button) on any scholarship card. It's added to 'My saved scholarships' in the side panel. You need to be signed in so the list is stored with your account and is still there next time. Press 'Saved' again, or 'Remove' in the side panel, to unsave it. Saving only adds the scholarship to your list. It doesn't open the application, and it doesn't earn points.",
+      "links": ["tab:scholarships"]
+    },
+    {
+      "id": "apply_button",
+      "title": "Where Apply buttons go",
+      "basis": "nextstep",
+      "keywords": {"apply button": 5, "apply": 2, "button": 2, "where does": 2, "take me": 3, "redirect": 2, "link": 1},
+      "patterns": ["apply button", "where does .{0,20}apply", "apply.{0,20}take me"],
+      "answer": "On scholarship and internship cards, 'Apply' opens the provider's official page in a new tab. That's the page NextStep checked, shown under 'Source' with the date it was last checked. NextStep doesn't submit anything and doesn't save the scholarship when you press Apply. You complete the application on the provider's site. If NextStep doesn't have a verified link, the button says the link is unavailable instead of guessing. Listings marked closed still open the official page so you can see the next cycle.",
+      "links": ["tab:scholarships", "tab:internships"]
+    },
+    {
+      "id": "scholarship_scams",
+      "title": "Scholarship and aid scams",
+      "basis": "official",
+      "keywords": {"scam": 4, "fee": 2, "pay to apply": 3, "legit": 3, "legitimate": 3, "fake": 2},
+      "patterns": ["scam", "(legit|legitimate|real).{0,20}(scholarship|site)", "pay.{0,15}(apply|fafsa)"],
+      "answer": "Warning signs of a scam include having to pay to apply, 'guaranteed' awards, and requests for your FSA ID password, bank or Social Security number on an unfamiliar site. The FAFSA is free on StudentAid.gov. StudentAid.gov has an official page on avoiding scams.",
+      "links": ["scams"]
+    },
+    {
+      "id": "internships_find",
+      "title": "Finding an internship",
+      "basis": "nextstep",
+      "keywords": {"internship": 4, "internships": 4, "summer program": 3, "job": 2, "work": 1, "syep": 3, "summer job": 3, "research program": 2},
+      "patterns": ["internship", "summer (job|program)", "syep"],
+      "answer": "Open the Internships tab. It lists real programs for high school students, many in NYC (for example NYC's Summer Youth Employment Program, museum and botanical garden teen programs, and university research programs), plus a few for college students. Each listing shows eligibility, pay (or 'Not specified'), format, status and when NextStep last checked the official page. Use the High School / College filter. 'Apply' opens the official program page. NextStep doesn't submit applications, and opening the page doesn't mean you've applied. Many programs open in winter or spring, so check closed listings again later.",
+      "links": ["tab:internships"]
+    },
+    {
+      "id": "resume",
+      "title": "Résumé preparation",
+      "basis": "general",
+      "keywords": {"resume": 4, "résumé": 4, "cv": 3},
+      "patterns": ["r[eé]sum[eé]"],
+      "answer": "General guidance for a high school résumé (one page):\n- Contact info (name, email). Don't include your Social Security number or date of birth.\n- Education: school, expected graduation, and GPA if it's strong.\n- Experience: jobs, internships and volunteering, each with 1-2 bullet points that start with action verbs ('Organized...', 'Tutored...').\n- Activities and leadership, skills (languages, software), awards.\nKeep the format simple and consistent, and ask a teacher or mentor to proofread it.",
+      "links": ["tab:internships"]
+    },
+    {
+      "id": "interview",
+      "title": "Interview preparation",
+      "basis": "general",
+      "keywords": {"interview": 4, "interviews": 4},
+      "patterns": ["interview"],
+      "answer": "General guidance:\n1. Research the program or college and prepare 2-3 questions to ask.\n2. Practice common questions out loud: tell me about yourself, why this program, a challenge you overcame, your strengths.\n3. Use specific examples (situation, what you did, the result).\n4. Arrive or log in early, dress neatly, and send a short thank-you email afterward.",
+      "links": []
+    },
+    {
+      "id": "careers",
+      "title": "Career exploration",
+      "basis": "general",
+      "keywords": {"career": 4, "careers": 4, "job": 1, "major": 2, "study": 1.5, "become": 1.5, "what should i study": 3, "future": 1},
+      "patterns": ["career", "(what|should|can) i (study|major|become)", "should i (study|major|become)"],
+      "answer": "General guidance: start with what you enjoy and are good at, then try it out through internships, summer programs, volunteering or talking to people in the field. The Internships tab lists verified programs. Mentor profiles show majors and career interests. College Scorecard shows median earnings by college and field of study, which can help you compare.",
+      "links": ["tab:internships", "tab:mentors", "scorecard"]
+    },
+    {
+      "id": "mentor_connect",
+      "title": "Connecting with a mentor",
+      "basis": "nextstep",
+      "keywords": {"mentor": 4, "mentors": 4, "connect": 3, "alumni": 2, "request": 1, "session": 1},
+      "patterns": ["(connect|talk|reach).{0,30}mentor", "mentor.{0,30}(connect|request|session)"],
+      "answer": "Open the Connect Mentors tab and choose 'View profile' to read a mentor's background, college, major, areas of support and languages. Opening a profile doesn't send anything. To connect, choose 'Request a session' on the profile. Pick what you'd like help with, add an optional note (don't include phone numbers or addresses), and submit. You'll see a confirmation only after NextStep has saved your request, and its status (Pending, Accepted, Declined, Cancelled) appears under 'My requests'. Important: the current profiles are labeled 'Demo profile - fictional example, not a verified mentor', so no real person will reply to them yet.",
+      "links": ["tab:mentors"]
+    },
+    {
+      "id": "mentor_status",
+      "title": "Mentor request statuses",
+      "basis": "nextstep",
+      "keywords": {"status": 3, "pending": 3, "accepted": 2, "declined": 2, "my requests": 3, "heard back": 2},
+      "patterns": ["(request|mentor).{0,30}status", "pending", "heard back"],
+      "answer": "Your mentor and tutor requests are listed under 'My requests' on the Connect Mentors tab:\n- Pending: saved and waiting for a reply.\n- Accepted / Declined: the mentor's answer.\n- Cancelled: you withdrew it.\nYou can have only one pending request per mentor at a time. NextStep doesn't show availability or response times unless a mentor actually provides them, and the demo profiles never reply.",
+      "links": ["tab:mentors"]
+    },
+    {
+      "id": "become_mentor",
+      "title": "Becoming a mentor",
+      "basis": "nextstep",
+      "keywords": {"become a mentor": 5, "be a mentor": 5, "volunteer": 2, "apply as mentor": 5, "tutor": 1},
+      "patterns": ["(become|be) a (mentor|tutor)", "apply as (a )?(mentor|tutor)"],
+      "answer": "College students and alumni can use 'Apply as Mentor/Tutor' on the sign-in screen. Applications are saved as 'pending verification' and don't appear on the site until NextStep staff verify them. Verified details (like enrollment) will be marked separately from self-reported details.",
+      "links": []
+    },
+    {
+      "id": "checklist_points",
+      "title": "How checklist points work",
+      "basis": "nextstep",
+      "keywords": {"points": 4, "point": 3, "checklist": 3, "score": 2, "earn": 2, "uncheck": 3, "check off": 2},
+      "patterns": ["points?", "checklist", "uncheck"],
+      "answer": "Each step on the FAFSA & TAP checklist is worth exactly 100 points:\n- Checking a step adds 100 points, and unchecking it removes those 100.\n- Your checklist score is always 100 x the steps you've completed, so checking and unchecking again can never give you extra points.\n- Your progress is saved to your account, so it's still there when you come back.\nThe Gift Shop balance is your checklist points minus anything you've already redeemed. Saving scholarships and requesting tutors don't award points.",
+      "links": ["tab:fafsa", "tab:rewards"]
+    },
+    {
+      "id": "rewards",
+      "title": "Gift Shop and rewards",
+      "basis": "nextstep",
+      "keywords": {"gift": 3, "shop": 3, "reward": 3, "rewards": 3, "merch": 3, "redeem": 3, "gift card": 3},
+      "patterns": ["(gift|reward|merch|redeem)"],
+      "answer": "The Gift Shop & Merch tab shows your available balance: checklist points earned minus points already redeemed. When you redeem, NextStep records a request for staff to fulfill. A confirmation means your request was saved, not that a code or package has been sent.",
+      "links": ["tab:rewards"]
+    },
+    {
+      "id": "navigation",
+      "title": "Using the NextStep dashboard",
+      "basis": "nextstep",
+      "keywords": {"navigate": 3, "dashboard": 3, "tabs": 2, "where is": 2, "where can i": 2, "how do i use": 2, "features": 2, "nextstep": 1},
+      "patterns": ["(navigate|dashboard|where is|where can i find)", "what can (nextstep|this site|you) do"],
+      "answer": "NextStep's tabs:\n- FAFSA & TAP Aid: tutorial videos, official links and the 100-point checklist.\n- Gift Shop & Merch: spend checklist points.\n- Scholarships: verified listings, Apply and Save.\n- ACT / SAT Prep & Tutors: tutor profiles.\n- College Matcher: search real U.S. colleges by name and get explained matches.\n- Connect Mentors: mentor profiles and session requests.\n- Internships: verified programs.\n- Assistant: this help chat.\nUse the tabs at the top of the page. On a phone, swipe the tab bar sideways.",
+      "links": []
+    },
+    {
+      "id": "troubleshoot",
+      "title": "Troubleshooting",
+      "basis": "nextstep",
+      "keywords": {"troubleshoot": 5, "not working": 4, "broken": 3, "error": 3, "bug": 3, "doesn't work": 4, "won't load": 4, "stuck": 2, "problem": 2, "help": 0.5},
+      "patterns": ["(not|isn'?t|doesn'?t|won'?t) (work|load|save|open)", "troubleshoot", "error", "broken"],
+      "answer": "Try these steps:\n1. Refresh the page. Your checklist, saved scholarships and requests are stored on the server.\n2. If you see 'Please sign in first', your session expired, so sign in again.\n3. If a save fails, NextStep shows an error and keeps your previous state. Check your internet connection and try again.\n4. If a video doesn't play, use the 'Watch on YouTube' link on its card.\n5. Apply buttons open a new tab, so allow pop-ups for this site if nothing happens.\n6. If it still fails, note what you clicked and the exact error message and tell your teacher or the NextStep team.",
+      "links": []
+    },
+    {
+      "id": "grants_loans",
+      "title": "Grants, scholarships and loans",
+      "basis": "official",
+      "keywords": {"grant": 3, "grants": 3, "loan": 3, "loans": 3, "pell": 4, "pay back": 3, "work-study": 3, "work study": 3},
+      "patterns": ["(grant|loan|pell|work.study)", "pay (it )?back"],
+      "answer": "- Grants (like the federal Pell Grant and New York's TAP) and scholarships usually don't have to be repaid.\n- Federal work-study is money you earn from a part-time job.\n- Loans must be repaid with interest. Federal student loans generally have more protections than private loans.\nThe FAFSA is the application for federal grants, work-study and loans, and New York uses it for TAP. StudentAid.gov explains each type.",
+      "links": ["understand_aid", "pell", "tap"]
+    },
+    {
+      "id": "sai",
+      "title": "Student Aid Index",
+      "basis": "official",
+      "keywords": {"sai": 4, "student aid index": 5, "efc": 3, "expected family contribution": 4},
+      "patterns": ["\\bsai\\b", "student aid index", "\\befc\\b"],
+      "answer": "The Student Aid Index (SAI) is a number calculated from your FAFSA. Colleges use it to decide how much need-based aid you qualify for. It replaced the old Expected Family Contribution (EFC). It isn't the amount your family will pay. StudentAid.gov's Aid Estimator can give you an early estimate.",
+      "links": ["aid_estimator", "understand_aid"]
+    },
+    {
+      "id": "test_prep",
+      "title": "SAT / ACT prep",
+      "basis": "general",
+      "keywords": {"sat": 3, "act": 3, "test prep": 4, "score": 1, "practice test": 3, "tutor": 2},
+      "patterns": ["\\b(sat|act)\\b", "test prep"],
+      "answer": "General guidance: take a full-length official practice test to find your starting point, then focus on your weakest question types, keep an error log, and practice with timing. Many colleges are test-optional, so check each college's policy (search the college by name in the College Matcher to see its published test policy and score ranges). The ACT/SAT Prep tab lists tutor profiles. They're demo profiles right now.",
+      "links": ["tab:testprep", "bigfuture"]
+    },
+    {
+      "id": "privacy",
+      "title": "Privacy and sensitive information",
+      "basis": "nextstep",
+      "keywords": {"ssn": 4, "social security": 4, "password": 3, "private": 2, "privacy": 3, "safe": 1, "personal information": 3},
+      "patterns": ["social security", "\\bssn\\b", "privacy", "password"],
+      "answer": "Never type your Social Security number, FSA ID or HESC password, or bank information into NextStep or this chat. NextStep never needs them. Enter them only on the official StudentAid.gov and HESC websites. NextStep stores only what's needed for your account: name, email, GPA, budget, checklist progress, saved items and requests.",
+      "links": ["studentaid", "hesc", "scams"]
+    }
+  ]
+}
